@@ -1,8 +1,11 @@
-const Express = require("express");
-const router = Express.Router();
+const router = require("express").Router();
+const { UserModel } = require("../models");
 
-router.get('/practice', (req, res) => {
-    res.send('Hi Justin / Amit! This is my practice route!')
-});
+router.post("/register", async (req, res) => {
 
-module.exports.router;
+    UserModel.create({
+        username: "username",
+        password: "password1234"
+    })
+})
+module.exports = router;
